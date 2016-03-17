@@ -49,7 +49,6 @@ if (isset($_POST['update'])) {
             overflow: visible;
             background: rgba(51, 51, 51, 0.8) url('//sierrafire.cr.usgs.gov/images/loading.gif') no-repeat center center;
         }
-
     </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -61,7 +60,7 @@ if (isset($_POST['update'])) {
         jQuery(function($) {
             $(window).load(function(){
                 $('#preloader').fadeOut('slow', function(){
-                    // $('#preloader').style("display", "none");
+                    // $('#preloader').remove();
                 });
             });
 
