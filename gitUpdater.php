@@ -128,7 +128,7 @@ if (isset($_POST['update'])) {
 
     </div>
     <?php
-        $say = 1;
+        $count = 1;
         $head = dirname(__FILE__).'/';
 
         try {
@@ -189,14 +189,14 @@ if (isset($_POST['update'])) {
                     $originUrl = `cd {$headPath}; git config --get remote.origin.url`;
         ?>
             <tr data-headpath="<?= realpath($headPath) ?>">
-                <th scope="row"><?= $say ?></th>
+                <th scope="row"><?= $count ?></th>
                 <td><?= realpath($path) ?></td>
                 <td><?= '<a href="'.trim($originUrl).'" target="_blank">'.trim($originUrl).'</a>' ?></td>
                 <td><a class="btn btn-info-outline update-single" onclick="return updateSingle(this);" href="javascript:;">Update</a></td>
                 <td class="process-status">Pending</td>
             </tr>
         <?
-                    $say++;
+                    $count++;
                 }
             }
         ?>
