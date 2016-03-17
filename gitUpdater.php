@@ -39,6 +39,17 @@ if (isset($_POST['update'])) {
         td {
             font-size: 14px;
         }
+        div#preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            background: rgba(51, 51, 51, 0.8) url('//sierrafire.cr.usgs.gov/images/loading.gif') no-repeat center center;
+        }
+
     </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -47,7 +58,12 @@ if (isset($_POST['update'])) {
 
 
     <script type="text/javascript">
-        jQuery(function() {
+        jQuery(function($) {
+            $(window).load(function(){
+                $('#preloader').fadeOut('slow', function(){
+                    // $('#preloader').style("display", "none");
+                });
+            });
 
             // Update all repos
             $('#update-all').click(function(){
@@ -92,6 +108,7 @@ if (isset($_POST['update'])) {
 </head>
 <body>
 
+<div id="preloader"></div>
 
 <br><br>
 <div class="col-md-12">
@@ -140,7 +157,7 @@ if (isset($_POST['update'])) {
             echo '
             </div>
             <!-- Modal -->
-            <div class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal fade" id="exc" tabindex="-1" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -158,7 +175,7 @@ if (isset($_POST['update'])) {
             </div>
             <script>
                 jQuery(function($){
-                    $(".modal").modal("show");
+                    $("#exc").modal("show");
                 });
             </script>
             </body></html>
