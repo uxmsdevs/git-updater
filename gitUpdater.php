@@ -71,7 +71,7 @@ if (isset($_POST['update'])) {
                 $(".update-single").each(function(i, el) {
                     setTimeout(function(){
                         updateSingle(el);
-                    }, 500 + (i * <?= $delay * 1000 ?>));
+                    }, 500 + (i * <?php echo $delay * 1000 ?>));
                 }).promise().done(function(){
                     // TODO: Fix this
                     // $('#update-all').html('OK');
@@ -204,14 +204,14 @@ if (isset($_POST['update'])) {
                     }
                     $originUrl = `cd {$headPath}; git config --get remote.origin.url`;
         ?>
-            <tr data-headpath="<?= realpath($headPath) ?>">
-                <th scope="row"><?= $count ?></th>
-                <td><?= realpath($path) ?></td>
-                <td><?= '<a href="'.trim($originUrl).'" target="_blank">'.trim($originUrl).'</a>' ?></td>
+            <tr data-headpath="<?php echo realpath($headPath) ?>">
+                <th scope="row"><?php echo $count ?></th>
+                <td><?php echo realpath($path) ?></td>
+                <td><?php echo '<a href="'.trim($originUrl).'" target="_blank">'.trim($originUrl).'</a>' ?></td>
                 <td><a class="btn btn-info-outline update-single" onclick="return updateSingle(this);" href="javascript:;">Update</a></td>
                 <td class="process-status">Pending</td>
             </tr>
-        <?
+        <?php
                     $count++;
                     flush();
                 }
