@@ -8,7 +8,7 @@ $folder = (isset($_GET['folder']) ? $_GET['folder'] : '/path/to/git/folder');
 
 if (isset($_POST['update'])) {
     $headPath = $_POST["headpath"];
-    $gitPullCmd = `cd {$headPath};git reset --hard HEAD; git pull`;
+    $gitPullCmd = `cd {$headPath}; git pull`;
 
     if (!$gitPullCmd) {
         echo '<span class="alert-danger">Repo could not found</span>';
