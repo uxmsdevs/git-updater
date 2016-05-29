@@ -4,7 +4,7 @@
  ************************************************/
 
 $delay = (isset($_GET['delay']) ? $_GET['delay'] : 2);
-$folder = (isset($_GET['folder']) ? $_GET['folder'] : '/Applications/MAMP/htdocs/git/laravelequips');
+$folder = (isset($_GET['folder']) ? $_GET['folder'] : '/path/to/git/folder');
 
 if (isset($_POST['update'])) {
     $headPath = $_POST["headpath"];
@@ -47,7 +47,7 @@ if (isset($_POST['update'])) {
             width: 100%;
             height: 100%;
             overflow: visible;
-            background: rgba(51, 51, 51, 0.8) url('//sierrafire.cr.usgs.gov/images/loading.gif') no-repeat center center;
+            background: rgba(51, 51, 51, 0.8) url('https://raw.githubusercontent.com/uxmsdevs/git-updater/master/loading.gif') no-repeat center center;
         }
     </style>
 
@@ -213,6 +213,7 @@ if (isset($_POST['update'])) {
             </tr>
         <?
                     $count++;
+                    flush();
                 }
             }
         ?>
